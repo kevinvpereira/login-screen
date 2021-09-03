@@ -1,0 +1,33 @@
+<auth-layout class="flex">
+  <auth-subtitle title="Bem vindo ao Invision"></auth-subtitle>
+
+  <form class="flex" *ngIf="form" (ngSubmit)="signIn()" [formGroup]="form">
+    <div class="input--field">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email"/>
+      <span *ngIf="!emailField?.valid && emailField?.touched && emailField?.hasError('email')">
+        O e-mail está incorreto
+      </span>
+      <span *ngIf="!emailField?.valid && emailField?.touched && emailField?.hasError('required')">
+        Esse campo não pode ser vazio
+      </span>
+    </div>
+
+    <div class="input--field">
+      <label for="password">Senha</label>
+      <input id="password" type="password" formControlName="password"/>
+      <span *ngIf="!passwordField?.valid && passwordField?.touched">
+        Esse campo não pode ser vazio
+      </span>
+    </div>
+
+    <custom-button class="" label="Entrar"></custom-button>
+  </form>
+
+  <auth-divider></auth-divider>
+
+  <auth-google></auth-google>
+
+  <auth-link url="/auth/sign-up" text="Já está no" link="Entre"></auth-link>
+  
+</auth-layout>

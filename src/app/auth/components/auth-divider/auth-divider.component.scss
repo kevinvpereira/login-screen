@@ -1,0 +1,19 @@
+.divider{
+    color: var(--color-grey);
+    padding: .5rem;
+    margin-top: 1.5rem;
+    font-size: 1.3rem;
+
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    gap: 1.5rem;
+    align-items: center;
+
+    &::before,
+        &::after{
+            content: "";
+            height: 1px;
+            background-color: var(--color-grey);
+            display: block;
+        }
+}

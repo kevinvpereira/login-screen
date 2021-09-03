@@ -1,0 +1,45 @@
+<auth-layout class="flex">
+    <auth-subtitle title="Começando no Invision"></auth-subtitle>
+
+    <form class="flex" *ngIf="form" (ngSubmit)="signIn()" [formGroup]="form">
+        <div class="input--field">
+            <label for="name">Nome</label>
+            <input id="name" type="text" formControlName="name" />
+            <span *ngIf="!nameField?.valid && nameField?.touched" class="auth--input__error">
+                Esse campo não pode ser vazio
+            </span>
+        </div>
+
+        <div class="input--field">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" />
+            <span class="auth--input__error"
+                *ngIf="!emailField?.valid && emailField?.touched && emailField?.hasError('email')" >
+                Invalid E-mail
+            </span>
+            <span *ngIf="!emailField?.valid && emailField?.touched && emailField?.hasError('required')">
+                Esse campo não pode ser vazio
+            </span>
+        </div>
+
+        <div class="input--field">
+            <label for="password">Senha</label>
+            <input id="password" type="password" formControlName="password" />
+            <span *ngIf=" !passwordField?.valid && passwordField?.touched && passwordField?.hasError('required')">
+                Esse campo não pode ser vazio
+            </span>
+            <span *ngIf="!passwordField?.valid && passwordField?.touched && passwordField?.hasError('minlength')">
+                A senha não pode ter menos de 6 caracteres
+            </span>
+        </div>
+
+        <custom-button label="Criar Conta"></custom-button>
+    </form>
+
+    <auth-divider></auth-divider>
+
+    <auth-google></auth-google>
+
+    <auth-link></auth-link>
+  
+</auth-layout>

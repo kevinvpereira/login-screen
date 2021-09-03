@@ -1,0 +1,17 @@
+.button{
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 1rem 5rem;
+    border-radius: 2rem;
+    border: none;
+    transition: .2s all ease-in-out;
+
+    &:hover{
+        cursor: pointer;
+        background-color: var(--color-primary-darken);
+    }
+
+    &:active{
+        transform: translateY(-2px);
+    }
+}
